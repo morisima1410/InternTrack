@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InternTrack - Internship Application Management System</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="background-color: var(--bg-cream);">
+
+  <!-- Landing Header Navbar -->
+  <header style="background-color: var(--card-white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between;">
+      <div class="logo-brand">
+        <div class="logo-icon">IT</div>
+        <div>
+          <div>INTERNTRACK</div>
+          <div class="logo-tagline">APPLY • TRACK • GROW</div>
+        </div>
+      </div>
+
+      <nav style="display: flex; align-items: center; gap: 2rem;">
+        <a href="#features" style="font-weight: 600; font-size: 0.95rem; color: var(--secondary-text);">Features</a>
+        <a href="#how-it-works" style="font-weight: 600; font-size: 0.95rem; color: var(--secondary-text);">How It Works</a>
+        <a href="#auth-section" style="font-weight: 600; font-size: 0.95rem; color: var(--secondary-text);">About</a>
+        <button id="nav-login-btn" class="btn btn-outline btn-sm">Login</button>
+        <button id="nav-register-btn" class="btn btn-primary btn-sm">Register</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section style="padding: 4.5rem 1.5rem; text-align: center; max-width: 860px; margin: 0 auto;">
+      <span class="badge badge-mode" style="margin-bottom: 1.25rem; padding: 0.35rem 0.85rem; font-size: 0.82rem;">
+        DECODELABS PROJECT 4 • INTERNSHIP TRACKER
+      </span>
+      <h1 style="font-size: 3rem; line-height: 1.15; font-weight: 900; color: var(--primary-black); margin-bottom: 1.25rem;">
+        Track Every Internship Opportunity in One Place.
+      </h1>
+      <p style="font-size: 1.15rem; color: var(--secondary-text); margin-bottom: 2rem; max-width: 680px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+        Manage applications, interviews, deadlines and your internship journey from one simple, organized dashboard.
+      </p>
+      <div style="display: flex; justify-content: center; gap: 1rem;">
+        <a href="#auth-section" id="hero-start-btn" class="btn btn-primary" style="padding: 0.85rem 2rem; font-size: 1rem;">Start Tracking →</a>
+        <a href="#auth-section" id="hero-login-btn" class="btn btn-outline" style="padding: 0.85rem 2rem; font-size: 1rem;">Login</a>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" style="max-width: 1200px; margin: 0 auto; padding: 3rem 1.5rem;">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Built for Student Career Growth</h2>
+        <p>Everything you need to streamline your internship hunt.</p>
+      </div>
+
+      <div class="grid-6" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="card" style="text-align: left;">
+          <div style="font-size: 2rem; margin-bottom: 0.75rem;">📋</div>
+          <h3 class="card-title" style="margin-bottom: 0.5rem;">Track Applications</h3>
+          <p style="font-size: 0.9rem; color: var(--secondary-text);">Keep all internship applications organized with company names, positions, and current statuses.</p>
+        </div>
+
+        <div class="card" style="text-align: left;">
+          <div style="font-size: 2rem; margin-bottom: 0.75rem;">⏰</div>
+          <h3 class="card-title" style="margin-bottom: 0.5rem;">Manage Deadlines</h3>
+          <p style="font-size: 0.9rem; color: var(--secondary-text);">Never miss an important application deadline with automated status highlights.</p>
+        </div>
+
+        <div class="card" style="text-align: left;">
+          <div style="font-size: 2rem; margin-bottom: 0.75rem;">🎙️</div>
+          <h3 class="card-title" style="margin-bottom: 0.5rem;">Track Interviews</h3>
+          <p style="font-size: 0.9rem; color: var(--secondary-text);">Keep upcoming technical rounds, HR screens, and interview dates in one clear schedule.</p>
+        </div>
+
+        <div class="card" style="text-align: left;">
+          <div style="font-size: 2rem; margin-bottom: 0.75rem;">📊</div>
+          <h3 class="card-title" style="margin-bottom: 0.5rem;">Monitor Progress</h3>
+          <p style="font-size: 0.9rem; color: var(--secondary-text);">See your internship journey through clear real-time statistics and success rate metrics.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" style="background-color: var(--soft-cream); border-y: 1px solid var(--border); padding: 4rem 1.5rem; margin: 2rem 0;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">How InternTrack Works</h2>
+          <p>4 simple steps to land your dream internship.</p>
+        </div>
+
+        <div class="grid-6" style="grid-template-columns: repeat(4, 1fr);">
+          <div style="background: var(--card-white); border: 1px solid var(--border); padding: 1.5rem; border-radius: var(--radius-md); text-align: center;">
+            <div style="font-size: 1.5rem; font-weight: 900; color: var(--primary-black); margin-bottom: 0.5rem;">01</div>
+            <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem;">Add Internship</h4>
+            <p style="font-size: 0.85rem; color: var(--secondary-text);">Input application details, location, and key recruiter dates.</p>
+          </div>
+
+          <div style="background: var(--card-white); border: 1px solid var(--border); padding: 1.5rem; border-radius: var(--radius-md); text-align: center;">
+            <div style="font-size: 1.5rem; font-weight: 900; color: var(--primary-black); margin-bottom: 0.5rem;">02</div>
+            <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem;">Track Progress</h4>
+            <p style="font-size: 0.85rem; color: var(--secondary-text);">Update stages from Applied to Shortlisted & Interview.</p>
+          </div>
+
+          <div style="background: var(--card-white); border: 1px solid var(--border); padding: 1.5rem; border-radius: var(--radius-md); text-align: center;">
+            <div style="font-size: 1.5rem; font-weight: 900; color: var(--primary-black); margin-bottom: 0.5rem;">03</div>
+            <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem;">Manage Interviews</h4>
+            <p style="font-size: 0.85rem; color: var(--secondary-text);">Stay prepared with scheduled interview notes and contacts.</p>
+          </div>
+
+          <div style="background: var(--card-white); border: 1px solid var(--border); padding: 1.5rem; border-radius: var(--radius-md); text-align: center;">
+            <div style="font-size: 1.5rem; font-weight: 900; color: var(--primary-black); margin-bottom: 0.5rem;">04</div>
+            <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem;">Get Selected</h4>
+            <p style="font-size: 0.85rem; color: var(--secondary-text);">Celebrate offers and evaluate compensation packages.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Authentication Section (Login / Register Card) -->
+    <section id="auth-section" style="max-width: 520px; margin: 4rem auto; padding: 0 1.5rem;">
+      <div class="card" style="padding: 2.25rem;">
+        <!-- Auth Header Branding -->
+        <div style="text-align: center; margin-bottom: 1.75rem;">
+          <div class="logo-icon" style="margin: 0 auto 0.75rem; width: 44px; height: 44px; font-size: 1.1rem;">IT</div>
+          <h2 style="font-size: 1.5rem; font-weight: 800;">INTERNTRACK</h2>
+          <p style="font-size: 0.85rem; color: var(--muted-text); font-weight: 700; letter-spacing: 0.08em; margin-top: 0.2rem;">
+            APPLY • TRACK • GROW
+          </p>
+        </div>
+
+        <!-- Auth Tabs -->
+        <div style="display: flex; border-bottom: 1px solid var(--border); margin-bottom: 1.5rem;">
+          <button id="tab-login" style="flex: 1; padding: 0.75rem; background: none; border: none; font-size: 1rem; font-weight: 700; color: var(--primary-black); border-bottom: 2px solid var(--primary-black); cursor: pointer;">
+            Login
+          </button>
+          <button id="tab-register" style="flex: 1; padding: 0.75rem; background: none; border: none; font-size: 1rem; font-weight: 700; color: var(--muted-text); border-bottom: 2px solid transparent; cursor: pointer;">
+            Register
+          </button>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <form id="login-form">
+          <div class="form-group" style="margin-bottom: 1.25rem;">
+            <label class="form-label" for="login-email">Email Address <span class="required">*</span></label>
+            <input type="email" id="login-email" class="form-control" placeholder="e.g. john@student.edu" required>
+            <span class="form-error">Please enter a valid email address.</span>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label class="form-label" for="login-password">Password <span class="required">*</span></label>
+            <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+            <span class="form-error">Password is required.</span>
+          </div>
+
+          <button type="submit" id="login-submit-btn" class="btn btn-primary" style="width: 100%; padding: 0.75rem;">
+            <span id="login-btn-text">Login to Dashboard</span>
+          </button>
+
+          <div style="text-align: center; margin-top: 1.25rem; font-size: 0.9rem; color: var(--secondary-text);">
+            Don't have an account? <a href="#" id="switch-to-register" style="font-weight: 700; color: var(--primary-black); text-decoration: underline;">Register</a>
+          </div>
+
+          <div style="margin-top: 1.5rem; padding: 0.85rem; background-color: var(--soft-cream); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 0.8rem; color: var(--secondary-text);">
+            <strong>Demo Credentials:</strong><br>
+            Email: <code>sima@gmail.com</code><br>
+            Password: <code>password_ 123</code>
+          </div>
+        </form>
+
+        <!-- REGISTRATION FORM -->
+        <form id="register-form" style="display: none;">
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label" for="reg-fullname">Full Name <span class="required">*</span></label>
+            <input type="text" id="reg-fullname" class="form-control" placeholder="e.g. John Student" required>
+            <span class="form-error">Full name is required.</span>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label" for="reg-email">Email Address <span class="required">*</span></label>
+            <input type="email" id="reg-email" class="form-control" placeholder="e.g. john@student.edu" required>
+            <span class="form-error">Please enter a valid email address.</span>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label" for="reg-password">Password <span class="required">*</span></label>
+            <input type="password" id="reg-password" class="form-control" placeholder="Minimum 6 characters" required>
+            <span class="form-error">Password must be at least 6 characters.</span>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label class="form-label" for="reg-confirm-password">Confirm Password <span class="required">*</span></label>
+            <input type="password" id="reg-confirm-password" class="form-control" placeholder="Re-enter password" required>
+            <span class="form-error">Passwords do not match.</span>
+          </div>
+
+          <button type="submit" id="reg-submit-btn" class="btn btn-primary" style="width: 100%; padding: 0.75rem;">
+            <span id="reg-btn-text">Create Account</span>
+          </button>
+
+          <div style="text-align: center; margin-top: 1.25rem; font-size: 0.9rem; color: var(--secondary-text);">
+            Already have an account? <a href="#" id="switch-to-login" style="font-weight: 700; color: var(--primary-black); text-decoration: underline;">Login</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background-color: var(--card-white); border-top: 1px solid var(--border); padding: 2rem 1.5rem; text-align: center; font-size: 0.85rem; color: var(--muted-text);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+      <div style="font-weight: 700; color: var(--primary-black);">INTERNTRACK • Apply • Track • Grow</div>
+      <div>DecodeLabs Full Stack Development Internship — Project 4</div>
+      <div>© 2026 InternTrack. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const loginTab = document.getElementById('tab-login');
+      const regTab = document.getElementById('tab-register');
+      const loginForm = document.getElementById('login-form');
+      const regForm = document.getElementById('register-form');
+      const switchToReg = document.getElementById('switch-to-register');
+      const switchToLogin = document.getElementById('switch-to-login');
+
+      function showLogin() {
+        loginTab.style.color = 'var(--primary-black)';
+        loginTab.style.borderBottomColor = 'var(--primary-black)';
+        regTab.style.color = 'var(--muted-text)';
+        regTab.style.borderBottomColor = 'transparent';
+        loginForm.style.display = 'block';
+        regForm.style.display = 'none';
+      }
+
+      function showRegister() {
+        regTab.style.color = 'var(--primary-black)';
+        regTab.style.borderBottomColor = 'var(--primary-black)';
+        loginTab.style.color = 'var(--muted-text)';
+        loginTab.style.borderBottomColor = 'transparent';
+        regForm.style.display = 'block';
+        loginForm.style.display = 'none';
+      }
+
+      loginTab?.addEventListener('click', showLogin);
+      regTab?.addEventListener('click', showRegister);
+      switchToReg?.addEventListener('click', (e) => { e.preventDefault(); showRegister(); });
+      switchToLogin?.addEventListener('click', (e) => { e.preventDefault(); showLogin(); });
+
+      document.getElementById('nav-login-btn')?.addEventListener('click', () => {
+        showLogin();
+        document.getElementById('auth-section').scrollIntoView({ behavior: 'smooth' });
+      });
+
+      document.getElementById('nav-register-btn')?.addEventListener('click', () => {
+        showRegister();
+        document.getElementById('auth-section').scrollIntoView({ behavior: 'smooth' });
+      });
+
+      document.getElementById('hero-login-btn')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        showLogin();
+        document.getElementById('auth-section').scrollIntoView({ behavior: 'smooth' });
+      });
+
+      document.getElementById('hero-start-btn')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        showRegister();
+        document.getElementById('auth-section').scrollIntoView({ behavior: 'smooth' });
+      });
+
+      // LOGIN SUBMISSION
+      loginForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-password').value;
+    const btnText = document.getElementById('login-btn-text');
+
+    btnText.textContent = 'Logging in...';
+
+    try {
+        const res = await apiFetch('/api/auth/login', {
+            method: 'POST',
+            body: {
+                email,
+                password
+            }
+        });
+
+        console.log('Login response:', res);
+
+        showToast('Login successful! Redirecting...', 'success');
+
+        setTimeout(() => {
+            window.location.href = 'dashboard.html';
+        }, 600);
+
+    } catch (err) {
+        console.error('Login error:', err);
+
+        showToast(
+            err.message || 'Invalid email or password.',
+            'error'
+        );
+
+        btnText.textContent = 'Login to Dashboard';
+    }
+});
+      // REGISTRATION SUBMISSION
+      regForm?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const full_name = document.getElementById('reg-fullname').value;
+        const email = document.getElementById('reg-email').value;
+        const password = document.getElementById('reg-password').value;
+        const confirmPassword = document.getElementById('reg-confirm-password').value;
+        const btnText = document.getElementById('reg-btn-text');
+
+        if (password.length < 6) {
+          showToast('Password must be at least 6 characters.', 'error');
+          return;
+        }
+
+        if (password !== confirmPassword) {
+          showToast('Passwords do not match.', 'error');
+          return;
+        }
+
+        btnText.textContent = 'Creating account...';
+
+        try {
+          const res = await apiFetch('/api/auth/register', {
+            method: 'POST',
+            body: { full_name, email, password, confirmPassword }
+          });
+
+          showToast('Registration successful! Redirecting to dashboard...', 'success');
+          setTimeout(() => {
+            window.location.href = 'dashboard.html';
+          }, 800);
+        } catch (err) {
+          const errMsg = err.message || 'Registration failed.';
+          showToast(errMsg, 'error');
+          btnText.textContent = 'Create Account';
+
+          if (errMsg.toLowerCase().includes('already exists')) {
+            setTimeout(() => {
+              // Switch to login tab and autofill email
+              const loginTabBtn = document.querySelector('.tab-btn[data-tab="login"]');
+              const loginEmailInput = document.getElementById('login-email');
+              if (loginEmailInput) loginEmailInput.value = email;
+              if (loginTabBtn) loginTabBtn.click();
+              showToast('Account exists! Switched to Login tab. Please enter your password.', 'info');
+            }, 1200);
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

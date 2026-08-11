@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Application - InternTrack</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div>
+        <div class="sidebar-header">
+          <a href="dashboard.html" class="logo-brand">
+            <div class="logo-icon">IT</div>
+            <div>
+              <div>INTERNTRACK</div>
+              <div class="logo-tagline">APPLY • TRACK • GROW</div>
+            </div>
+          </a>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a href="dashboard.html" class="nav-item">
+            <span class="nav-icon">📊</span>
+            <span>Dashboard</span>
+          </a>
+          <a href="applications.html" class="nav-item">
+            <span class="nav-icon">📋</span>
+            <span>Applications</span>
+          </a>
+          <a href="add-application.html" class="nav-item active">
+            <span class="nav-icon">➕</span>
+            <span>Add Application</span>
+          </a>
+          <a href="interviews.html" class="nav-item">
+            <span class="nav-icon">🎙️</span>
+            <span>Interviews</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-profile">
+          <div class="user-avatar">JS</div>
+          <div class="user-info">
+            <div class="user-name">Loading...</div>
+            <div class="user-email">...</div>
+          </div>
+        </div>
+        <button class="btn-logout-sidebar logout-btn">
+          <span>🚪</span> Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+      <header class="topbar">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <button id="mobile-toggle-btn" class="mobile-toggle">☰</button>
+          <div class="page-title-area">
+            <h1 id="form-page-title">Add Internship Application</h1>
+            <p id="form-page-subtitle">Record a new internship opportunity to track deadlines and interviews.</p>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <a href="applications.html" class="btn btn-outline">Cancel & Return</a>
+        </div>
+      </header>
+
+      <main class="main-content" style="max-width: 920px;">
+        <div class="card" style="padding: 2rem;">
+          <form id="application-form">
+            <h3 style="margin-bottom: 1.25rem; font-size: 1.1rem; border-bottom: 1px solid var(--light-border); padding-bottom: 0.5rem;">
+              1. Basic Role & Company Details
+            </h3>
+
+            <div class="form-grid" style="margin-bottom: 1.5rem;">
+              <div class="form-group">
+                <label class="form-label" for="company">Company Name <span class="required">*</span></label>
+                <input type="text" id="company" class="form-control" placeholder="e.g. Stripe, Google, Figma" required>
+                <span class="form-error">Company name is required.</span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="position">Position / Role Title <span class="required">*</span></label>
+                <input type="text" id="position" class="form-control" placeholder="e.g. Software Engineering Intern" required>
+                <span class="form-error">Position title is required.</span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="location">Location</label>
+                <input type="text" id="location" class="form-control" placeholder="e.g. San Francisco, CA or Remote">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="work_mode">Work Mode</label>
+                <select id="work_mode" class="form-control">
+                  <option value="Remote">Remote</option>
+                  <option value="Hybrid">Hybrid</option>
+                  <option value="On-site">On-site</option>
+                </select>
+              </div>
+
+              <div class="form-group full-width">
+                <label class="form-label" for="application_url">Job Listing / Application Portal URL</label>
+                <input type="url" id="application_url" class="form-control" placeholder="https://careers.company.com/job/123">
+              </div>
+            </div>
+
+            <h3 style="margin-bottom: 1.25rem; font-size: 1.1rem; border-bottom: 1px solid var(--light-border); padding-bottom: 0.5rem;">
+              2. Status & Timeline
+            </h3>
+
+            <div class="form-grid" style="margin-bottom: 1.5rem;">
+              <div class="form-group">
+                <label class="form-label" for="status">Current Status <span class="required">*</span></label>
+                <select id="status" class="form-control" required>
+                  <option value="Applied">Applied</option>
+                  <option value="Shortlisted">Shortlisted</option>
+                  <option value="Interview">Interview</option>
+                  <option value="Selected">Selected / Offer</option>
+                  <option value="Rejected">Rejected</option>
+                  <option value="Withdrawn">Withdrawn</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="priority">Priority Level <span class="required">*</span></label>
+                <select id="priority" class="form-control" required>
+                  <option value="High">High Priority</option>
+                  <option value="Medium" selected>Medium Priority</option>
+                  <option value="Low">Low Priority</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="applied_date">Applied Date <span class="required">*</span></label>
+                <input type="date" id="applied_date" class="form-control" required>
+                <span class="form-error">Applied date is required.</span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="deadline">Application Deadline</label>
+                <input type="date" id="deadline" class="form-control">
+                <span class="form-error">Deadline cannot be before Applied Date.</span>
+              </div>
+            </div>
+
+            <h3 style="margin-bottom: 1.25rem; font-size: 1.1rem; border-bottom: 1px solid var(--light-border); padding-bottom: 0.5rem;">
+              3. Interview & Recruiter Info
+            </h3>
+
+            <div class="form-grid" style="margin-bottom: 1.5rem;">
+              <div class="form-group">
+                <label class="form-label" for="interview_date">Scheduled Interview Date</label>
+                <input type="date" id="interview_date" class="form-control">
+                <span class="form-error">Interview date cannot be before Applied Date.</span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="interview_time">Interview Time</label>
+                <input type="time" id="interview_time" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact_person">Contact / Recruiter Name</label>
+                <input type="text" id="contact_person" class="form-control" placeholder="e.g. Sarah Jenkins">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact_email">Recruiter Email</label>
+                <input type="email" id="contact_email" class="form-control" placeholder="recruiter@company.com">
+              </div>
+
+              <div class="form-group full-width">
+                <label class="form-label" for="stipend">Stipend / Salary Compensation</label>
+                <input type="text" id="stipend" class="form-control" placeholder="e.g. $50/hr + $2000 housing stipend">
+              </div>
+
+              <div class="form-group full-width">
+                <label class="form-label" for="notes">Preparation Notes & Tech Stack</label>
+                <textarea id="notes" class="form-control" rows="4" placeholder="Record interview preparation topics, referral source, tech stack keywords, or recruiter notes..."></textarea>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; gap: 1rem; border-top: 1px solid var(--border); padding-top: 1.5rem;">
+              <a href="applications.html" class="btn btn-outline">Cancel</a>
+              <button type="submit" id="submit-btn" class="btn btn-primary" style="padding: 0.75rem 2rem;">
+                <span id="submit-btn-text">Save Application</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/add-application.js"></script>
+</body>
+</html>

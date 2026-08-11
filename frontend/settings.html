@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - InternTrack</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-brand">
+          <div class="logo-icon">IT</div>
+          <div>
+            <div>INTERNTRACK</div>
+            <div class="logo-tagline">APPLY • TRACK • GROW</div>
+          </div>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item">
+          <span class="nav-icon">📊</span>
+          <span>Dashboard</span>
+        </a>
+        <a href="applications.html" class="nav-item">
+          <span class="nav-icon">📋</span>
+          <span>Applications</span>
+        </a>
+        <a href="add-application.html" class="nav-item">
+          <span class="nav-icon">➕</span>
+          <span>Add Application</span>
+        </a>
+        <a href="interviews.html" class="nav-item">
+          <span class="nav-icon">🎙️</span>
+          <span>Interviews</span>
+        </a>
+        <a href="settings.html" class="nav-item active">
+          <span class="nav-icon">⚙️</span>
+          <span>Settings</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user-profile">
+          <div class="user-avatar">JS</div>
+          <div class="user-info">
+            <div class="user-name">John Student</div>
+            <div class="user-role">Internship Candidate</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+      <header class="topbar">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <button class="mobile-toggle" id="mobile-toggle-btn">☰</button>
+          <div class="page-title-area">
+            <h1>Application Settings</h1>
+            <p>Configure preferences and manage SQLite application data.</p>
+          </div>
+        </div>
+      </header>
+
+      <main class="main-content" style="max-width: 900px;">
+        <!-- Candidate Profile Settings -->
+        <section class="card">
+          <div class="card-header">
+            <h3 class="card-title">Candidate Profile</h3>
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="setting-name">Full Name</label>
+              <input type="text" id="setting-name" class="form-control" value="John Student">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="setting-title">Degree / Specialization</label>
+              <input type="text" id="setting-title" class="form-control" value="Computer Science & Engineering">
+            </div>
+          </div>
+        </section>
+
+        <!-- System & Theme Settings -->
+        <section class="card">
+          <div class="card-header">
+            <h3 class="card-title">Theme & Interface</h3>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0;">
+            <div>
+              <div style="font-weight: 600; color: var(--primary-black);">Design Theme</div>
+              <div style="font-size: 0.85rem; color: var(--muted-text);">Cream + White + Black Premium SaaS Palette</div>
+            </div>
+            <span class="badge badge-applied" style="font-size: 0.85rem;">Active Theme</span>
+          </div>
+        </section>
+
+        <!-- Database Maintenance -->
+        <section class="card">
+          <div class="card-header">
+            <h3 class="card-title">Database & Sample Data Management</h3>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="font-weight: 600; color: var(--primary-black);">Export Applications JSON</div>
+                <div style="font-size: 0.85rem; color: var(--muted-text);">Download a complete backup of all internship records.</div>
+              </div>
+              <button id="export-json-btn" class="btn btn-secondary">Export JSON</button>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid var(--soft-border);">
+
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="font-weight: 600; color: var(--danger);">Reset & Re-seed Sample Data</div>
+                <div style="font-size: 0.85rem; color: var(--muted-text);">Resets SQLite database and re-inserts sample applications (Stripe, Google, Meta, etc.).</div>
+              </div>
+              <button id="reset-seed-btn" class="btn btn-danger">Reset & Seed DB</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Export JSON backup handler
+      const exportBtn = document.getElementById('export-json-btn');
+      if (exportBtn) {
+        exportBtn.addEventListener('click', async () => {
+          try {
+            const data = await apiFetch('/api/applications');
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `interntrack-backup-${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            showToast('Applications backup downloaded successfully.', 'success');
+          } catch (err) {
+            showToast('Failed to export data.', 'error');
+          }
+        });
+      }
+
+      // Reset & Seed handler
+      const resetBtn = document.getElementById('reset-seed-btn');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          showConfirmModal({
+            title: 'Reset & Seed Database',
+            message: 'Are you sure you want to reset the database and re-seed sample internship applications?',
+            confirmText: 'Reset & Seed',
+            onConfirm: async () => {
+              try {
+                const res = await apiFetch('/api/dashboard/seed', { method: 'POST' });
+                if (res.success) {
+                  showToast('Database reset and re-seeded with sample data.', 'success');
+                }
+              } catch (err) {
+                showToast('Failed to reset database.', 'error');
+              }
+            }
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

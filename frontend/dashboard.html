@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - InternTrack</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div>
+        <div class="sidebar-header">
+          <a href="dashboard.html" class="logo-brand">
+            <div class="logo-icon">IT</div>
+            <div>
+              <div>INTERNTRACK</div>
+              <div class="logo-tagline">APPLY • TRACK • GROW</div>
+            </div>
+          </a>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a href="dashboard.html" class="nav-item active">
+            <span class="nav-icon">📊</span>
+            <span>Dashboard</span>
+          </a>
+          <a href="applications.html" class="nav-item">
+            <span class="nav-icon">📋</span>
+            <span>Applications</span>
+          </a>
+          <a href="add-application.html" class="nav-item">
+            <span class="nav-icon">➕</span>
+            <span>Add Application</span>
+          </a>
+          <a href="interviews.html" class="nav-item">
+            <span class="nav-icon">🎙️</span>
+            <span>Interviews</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-profile">
+          <div class="user-avatar">JS</div>
+          <div class="user-info">
+            <div class="user-name">Loading...</div>
+            <div class="user-email">...</div>
+          </div>
+        </div>
+        <button class="btn-logout-sidebar logout-btn">
+          <span>🚪</span> Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="main-wrapper">
+      <header class="topbar">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <button id="mobile-toggle-btn" class="mobile-toggle">☰</button>
+          <div class="page-title-area">
+            <h1>Dashboard Overview</h1>
+            <p>Track your application metrics, upcoming deadlines, and interview schedules.</p>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <a href="add-application.html" class="btn btn-primary">+ Add Application</a>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <!-- Statistics Grid -->
+        <div class="grid-6" style="margin-bottom: 1.5rem;">
+          <div class="stat-card">
+            <div class="stat-label">Total Applied</div>
+            <div class="stat-value" id="stat-total">0</div>
+            <div class="stat-subtext">All logged positions</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Applied</div>
+            <div class="stat-value" id="stat-applied">0</div>
+            <div class="stat-subtext">Awaiting response</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Shortlisted</div>
+            <div class="stat-value" id="stat-shortlisted">0</div>
+            <div class="stat-subtext">Passed screening</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Interviews</div>
+            <div class="stat-value" id="stat-interviews">0</div>
+            <div class="stat-subtext">Rounds in progress</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Offers / Selected</div>
+            <div class="stat-value" id="stat-selected">0</div>
+            <div class="stat-subtext">Successful outcomes</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Success Rate</div>
+            <div class="stat-value" id="stat-success-rate">0%</div>
+            <div class="stat-subtext">Offer conversion rate</div>
+          </div>
+        </div>
+
+        <!-- 2 Column Section: Progress Overview & Deadlines -->
+        <div class="grid-2" style="margin-bottom: 1.5rem;">
+          <!-- Status Distribution Card -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Application Status Distribution</h3>
+              <span class="badge badge-mode">Real-time</span>
+            </div>
+            <div class="progress-container" id="status-overview-container">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- Upcoming Deadlines Card -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Upcoming Application Deadlines</h3>
+              <a href="applications.html" class="btn btn-outline btn-sm">View All</a>
+            </div>
+            <div id="deadlines-container">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 Column Section: Recent Applications & Upcoming Interviews -->
+        <div class="grid-2">
+          <!-- Recent Applications Table Card -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Recent Applications</h3>
+              <a href="applications.html" class="btn btn-outline btn-sm">All Applications →</a>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Company</th>
+                    <th>Position</th>
+                    <th>Status</th>
+                    <th>Priority</th>
+                    <th>Applied</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="recent-apps-tbody">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Upcoming Interviews Card -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Upcoming Interview Rounds</h3>
+              <a href="interviews.html" class="btn btn-outline btn-sm">Interview Schedule →</a>
+            </div>
+            <div id="dashboard-interviews-container">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

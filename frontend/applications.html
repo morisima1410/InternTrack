@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Applications - InternTrack</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div>
+        <div class="sidebar-header">
+          <a href="dashboard.html" class="logo-brand">
+            <div class="logo-icon">IT</div>
+            <div>
+              <div>INTERNTRACK</div>
+              <div class="logo-tagline">APPLY • TRACK • GROW</div>
+            </div>
+          </a>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a href="dashboard.html" class="nav-item">
+            <span class="nav-icon">📊</span>
+            <span>Dashboard</span>
+          </a>
+          <a href="applications.html" class="nav-item active">
+            <span class="nav-icon">📋</span>
+            <span>Applications</span>
+          </a>
+          <a href="add-application.html" class="nav-item">
+            <span class="nav-icon">➕</span>
+            <span>Add Application</span>
+          </a>
+          <a href="interviews.html" class="nav-item">
+            <span class="nav-icon">🎙️</span>
+            <span>Interviews</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-profile">
+          <div class="user-avatar">JS</div>
+          <div class="user-info">
+            <div class="user-name">Loading...</div>
+            <div class="user-email">...</div>
+          </div>
+        </div>
+        <button class="btn-logout-sidebar logout-btn">
+          <span>🚪</span> Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+      <header class="topbar">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <button id="mobile-toggle-btn" class="mobile-toggle">☰</button>
+          <div class="page-title-area">
+            <h1>Internship Applications</h1>
+            <p id="app-count-badge">Loading application records...</p>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <a href="add-application.html" class="btn btn-primary">+ Add New Internship</a>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <!-- Filter and Search Controls -->
+        <div class="filter-bar">
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="search-input" class="form-control search-input" placeholder="Search by company, position or location...">
+          </div>
+
+          <div class="filter-group">
+            <span class="filter-label">Status:</span>
+            <select id="status-filter" class="form-control" style="width: auto;">
+              <option value="All">All Statuses</option>
+              <option value="Applied">Applied</option>
+              <option value="Shortlisted">Shortlisted</option>
+              <option value="Interview">Interview</option>
+              <option value="Selected">Selected</option>
+              <option value="Rejected">Rejected</option>
+              <option value="Withdrawn">Withdrawn</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <span class="filter-label">Priority:</span>
+            <select id="priority-filter" class="form-control" style="width: auto;">
+              <option value="All">All Priorities</option>
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <span class="filter-label">Work Mode:</span>
+            <select id="workmode-filter" class="form-control" style="width: auto;">
+              <option value="All">All Modes</option>
+              <option value="Remote">Remote</option>
+              <option value="Hybrid">Hybrid</option>
+              <option value="On-site">On-site</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <span class="filter-label">Sort By:</span>
+            <select id="sort-filter" class="form-control" style="width: auto;">
+              <option value="Newest First">Newest Applied</option>
+              <option value="Oldest First">Oldest Applied</option>
+              <option value="Company A-Z">Company (A-Z)</option>
+              <option value="Deadline">Deadline Date</option>
+              <option value="Priority">Priority Level</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Desktop Applications Data Table -->
+        <div class="card" style="padding: 0; overflow: hidden;">
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Company</th>
+                  <th>Position</th>
+                  <th>Location & Mode</th>
+                  <th>Status</th>
+                  <th>Priority</th>
+                  <th>Applied Date</th>
+                  <th>Deadline</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="applications-tbody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Mobile Applications Cards -->
+        <div id="applications-mobile-cards" style="display: none;">
+          <!-- Rendered dynamically on small screens -->
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <style>
+    @media (max-width: 768px) {
+      .card:has(.table-responsive) { display: none; }
+      #applications-mobile-cards { display: block !important; }
+    }
+  </style>
+
+  <script src="js/app.js"></script>
+  <script src="js/applications.js"></script>
+</body>
+</html>

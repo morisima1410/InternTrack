@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interviews - InternTrack</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div>
+        <div class="sidebar-header">
+          <a href="dashboard.html" class="logo-brand">
+            <div class="logo-icon">IT</div>
+            <div>
+              <div>INTERNTRACK</div>
+              <div class="logo-tagline">APPLY • TRACK • GROW</div>
+            </div>
+          </a>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a href="dashboard.html" class="nav-item">
+            <span class="nav-icon">📊</span>
+            <span>Dashboard</span>
+          </a>
+          <a href="applications.html" class="nav-item">
+            <span class="nav-icon">📋</span>
+            <span>Applications</span>
+          </a>
+          <a href="add-application.html" class="nav-item">
+            <span class="nav-icon">➕</span>
+            <span>Add Application</span>
+          </a>
+          <a href="interviews.html" class="nav-item active">
+            <span class="nav-icon">🎙️</span>
+            <span>Interviews</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-profile">
+          <div class="user-avatar">JS</div>
+          <div class="user-info">
+            <div class="user-name">Loading...</div>
+            <div class="user-email">...</div>
+          </div>
+        </div>
+        <button class="btn-logout-sidebar logout-btn">
+          <span>🚪</span> Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+      <header class="topbar">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <button id="mobile-toggle-btn" class="mobile-toggle">☰</button>
+          <div class="page-title-area">
+            <h1>Interview Schedule & Preparation</h1>
+            <p>Manage upcoming interview dates, recruiter contacts, and technical prep notes.</p>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <a href="add-application.html" class="btn btn-primary">+ Schedule Interview</a>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <!-- Filter Tabs -->
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--light-border); padding-bottom: 0.5rem;">
+          <button class="btn btn-outline interview-tab active" data-tab="all">All Scheduled Interviews</button>
+          <button class="btn btn-outline interview-tab" data-tab="upcoming">Upcoming</button>
+          <button class="btn btn-outline interview-tab" data-tab="completed">Past / Completed</button>
+        </div>
+
+        <!-- Interviews List Container -->
+        <div id="interviews-list-container" class="grid-2">
+          <!-- Rendered dynamically -->
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/interviews.js"></script>
+</body>
+</html>
